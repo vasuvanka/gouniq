@@ -12,4 +12,10 @@ func main()  {
 		log.Fatal(err)
 	}
 	fmt.Println(ID)
+
+	ID, err = gouniq.NewID(100)
+	if err != nil {
+		log.Fatal(err)
+	}
+	fmt.Println(ID)
 }
