@@ -1,23 +1,24 @@
-
 package gouniq
 
-import "crypto/rand"
-import "errors"
+import (
+	"crypto/rand"
+	"errors"
+)
 
-const StdChars = []byte("ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789")
+var chars = []byte("ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789")
 
-// NewID returns uniq id string of the standard length, consisting of standard characters.
+// NewID returns uniq string ID consisting of standard characters.
 func NewID(length int) (string, error) {
-	return newLenChars(length, StdChars)
+	return newLenChars(length)
 }
 
-func newLenChars(length int, chars []byte) (string, error) {
+func newLenChars(length int) (string, error) {
 	if length == 0 {
 		return "", errors.New("empty string")
 	}
 	clen := len(chars)
 	if clen < 2 || clen > 256 {
-    return "", errors.New("wrong charset length,try again")
+		return "", errors.New("invalid length")
 	}
 	maxrb := 255 - (256 % clen)
 	b := make([]byte, length)

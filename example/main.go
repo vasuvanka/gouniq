@@ -1,8 +1,3 @@
-# gouniq
-uniq id string generator for go
-
-
-```go
 package main
 
 import (
@@ -18,4 +13,3 @@ func main()  {
 	}
 	fmt.Println(ID)
 }
-```
