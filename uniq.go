@@ -17,7 +17,7 @@ func NewID(length int) (string, error) {
 	if _, err := rand.Read(bytes); err != nil {
 		return "", err
 	}
-	for i := length - 1; i > 0; i-- {
+	for i := length - 1; i >= 0; i-- {
 		id += string(chars[bytes[i]&63])
 	}
 	return id, nil
