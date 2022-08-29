@@ -1,16 +1,16 @@
 # gouniq
 uniq id string generator for go
 
-# Import gouniq package from
+# Import gouniq package
 
-    - github.com/vasuvanka/gouniq
+    - go get github.com/vasuvanka/gouniq
 
 # Usage
 ```go
-	ID, err := gouniq.NewID(10)
+	uniqIDWithGivenLen, err := gouniq.NewID(10)
 	if err != nil {
 		log.Fatal(err)
-    }
+    	}
 ```
 
 # License
